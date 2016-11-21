@@ -34,8 +34,10 @@ In addition, this project will include:
 This app will consist of one screens: the drawing canvas. The canvas will have a peg board and buttons: to choose yarn color and an "erase" function to clear the board
 
 ![homepage]
+![yarnview]
 
 [homepage]: ./wireframes/home_page.png
+[yarnview]: ./wireframes/yarn_view.png
 
 
 ### Architecture and Technologies
