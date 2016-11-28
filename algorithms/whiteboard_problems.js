@@ -140,3 +140,104 @@ function validIP(string) {
 
 // console.log(validIP("255.255.255.255"));
 // console.log(validIP("25.2.2.2"));
+
+
+// Day 3
+console.log("Day 3");
+
+// Implement the Array.prototype.map function in JavaScript.
+// now map is very similar to each in that
+// Array.each executes the given block for each element of the array, then returns the array itself
+// whereas Array.map will also execute the given block for the element of the array but
+// returns a new array whose values are the return values of each iteration of the block
+
+// ES6
+Array.prototype.myMap = function(blockFunction){
+  let result = [];
+  this.forEach((el) => {
+    result.push(blockFunction(el));
+  });
+  return result;
+};
+
+// In a SQL db, you have two tables, an employees table and a departments table.
+// Employees belong to only one department. Write a SQL query that, given a department name,
+// finds all the employees in that department.
+  // SELECT
+  //   employee.*
+  // FROM
+  //   employees e
+  // JOIN
+  //   department d ON e.department_id = d.id
+  // WHERE
+  //   d.name = ?;
+
+// SQL + ActiveRecord
+// (from InstaCart) Write the following queries in SQL and in Rails:
+//
+// * a. "count all users",
+// * b. "count all active users (you define what active means)",
+// * c. "count all users who visited the site within a certain time period".
+
+// * a.
+// SQL
+  SELECT
+    COUNT(*)
+  FROM
+    users;
+// ruby
+  Users.count
+
+// * b.
+// SQL - assuming there is an 'active' column in the users table
+  SELECT
+    COUNT(*)
+  FROM
+    users
+  WHERE
+    users.active = true;
+// ruby
+  User.where(:active => "TRUE").count
+
+// * c.
+// SQL
+  SELECT
+    COUNT(*)
+  FROM
+    users
+  WHERE
+    users.last_login BETWEEN :time_period_start AND :time_period_end;
+// ruby
+  User.where(last_login: (time_period_start..time_period_end)).count
+
+// folding Cipher
+// Implement the Folding Cipher. It folds the alphabet in half and uses
+// the adjacent letter. Ie. a <=> z, b <=> y, c <=> x, m <=> n.
+
+// JavaScript
+function genCharArray(charA, charZ) {
+  let letters = [], i = charA.charCodeAt(0), j = charZ.charCodeAt(0);
+  for (; i <= j; i++) {
+    letters.push(String.fromCharCode(i));
+  }
+  return letters;
+}
+
+function foldingCipher(string) {
+  let alphabet = genCharArray("a", "z");
+  let reversedAlphabet = alphabet.reverse();
+  let foldedAlphabet = {};
+
+  for (let i = 0; i < alphabet.length; i++) {
+    foldedAlphabet[alphabet[i]] = reversedAlphabet[i]
+  }
+
+  string.split("").map(chr => foldedAlphabet[chr]).join("")
+}
+
+// Ruby
+// Hash::[] creates a hash from a list of key-value pairs
+// def folding_cipher(string)
+//   folded_alphabet = Hash[('a'..'z').zip(('a'..'z').to_a.reverse)]
+//   string.chars.map { |char| folded_alphabet[char] }.join
+// end

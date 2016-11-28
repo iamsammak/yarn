@@ -46,13 +46,13 @@
 
 	'use strict';
 	
-	var _game_view = __webpack_require__(2);
+	var _game_view = __webpack_require__(1);
 	
 	var _game_view2 = _interopRequireDefault(_game_view);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	__webpack_require__(1);
+	__webpack_require__(2);
 	
 	document.addEventListener('DOMContentLoaded', function () {
 	  new _game_view2.default();
@@ -62,13 +62,13 @@
 /* 1 */
 /***/ function(module, exports) {
 
-	// removed by extract-text-webpack-plugin
+	"use strict";
 
 /***/ },
 /* 2 */
 /***/ function(module, exports) {
 
-	"use strict";
+	// removed by extract-text-webpack-plugin
 
 /***/ }
 /******/ ]);
